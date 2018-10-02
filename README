@@ -1,0 +1,8 @@
+Build:
+sudo make
+
+Load/reload:
+sudo make restart
+
+Usage:
+sudo make start
