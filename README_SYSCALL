@@ -1,0 +1,16 @@
+the files of the syscall are in:
+/src/linux-4.18.10/syscall
+
+files modified:
+1) /src/linux-4.18.10/include/linux/syscalls.h
+added before #endif:
+asmlinkage long sys_get_user(const char* surname, unsigned int len, struct Person* user_data);
+
+2) /arch/x86/entry/syscalls/syscall_64.tbl
+added:
+335     common  syscall_get_user        sys_get_user
+336     common  syscall_put_user        sys_put_user
+337     common  syscall_del_user        sys_del_user
+
+build kernel:
+sudo make && sudo make modules_install && sudo make install
