@@ -1,0 +1,4 @@
+all:
+	gcc -g main.c -o test_get_user
+start:
+	./test_get_user
