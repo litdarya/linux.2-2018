@@ -8,9 +8,12 @@ asmlinkage long sys_get_user(const char* surname, unsigned int len, struct Perso
 
 2) /arch/x86/entry/syscalls/syscall_64.tbl
 added:
-335     common  syscall_get_user        sys_get_user
-336     common  syscall_put_user        sys_put_user
-337     common  syscall_del_user        sys_del_user
+335     common  sysgetuser              sys_sysgetuser
 
+3)
 build kernel:
-sudo make && sudo make modules_install && sudo make install
+
+sudo make && sudo make modules_install
+cp System.map /boot/System.map-linux48
+cp -v arch/x86/boot/bzImage /boot/vmlinuz-linux48
+mkinitcpio -p linux48
